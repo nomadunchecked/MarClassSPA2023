@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-prototype-builtins */
 import { Header, Nav, Main, Footer } from "./components";
 import * as store from "./store";
 import Navigo from "navigo";
@@ -20,6 +22,7 @@ function render(state = store.Home) {
 
 // router.updatePageLinks();
 
+// eslint-disable-next-line no-unused-vars
 function afterRender(state) {
   // add menu toggle to bars icon in nav bar
   document.querySelector(".fa-bars").addEventListener("click", () => {
@@ -30,6 +33,7 @@ function afterRender(state) {
 router
   .on({
     "/": () => render(),
+    // eslint-disable-next-line prettier/prettier
     ":view": (params) => {
       let view = capitalize(params.data.view);
       if (store.hasOwnProperty(view)) {

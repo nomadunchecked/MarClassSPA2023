@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import html from "html-literal";
 
 // constructing an HTML list of items from the array in Store

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-prototype-builtins */
 import { Header, Nav, Main, Footer } from "./components";
@@ -5,9 +6,9 @@ import * as store from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
-import dotenv from "dotenv";
 
-dotenv.config();
+// import dotenv from "dotenv";
+// dotenv.config();
 
 const router = new Navigo("/");
 
@@ -50,7 +51,7 @@ router.hooks({
               city: response.data.name,
               temp: kelvinToFahrenheit(response.data.main.temp),
               feelsLike: kelvinToFahrenheit(response.data.main.feels_like),
-              description: response.data.weather[0].main,
+              description: response.data.weather[0].main
             };
 
             // An alternate method would be to store the values independently
@@ -91,7 +92,7 @@ router.hooks({
     const view = params && params.data && params.data.view ? capitalize(params.data.view) : "Home";
 
     render(store[view]);
-  },
+  }
 });
 
 router
@@ -104,6 +105,6 @@ router
       } else {
         console.log(`View ${view} not defined`);
       }
-    },
+    }
   })
   .resolve();

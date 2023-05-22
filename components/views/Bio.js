@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import html from "html-literal";
 import dogPic from "../../assets/img/photo-1510771463146-e89e6e86560e.avif";
 

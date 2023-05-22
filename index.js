@@ -36,7 +36,6 @@ function afterRender(state) {
       event.preventDefault();
 
       const inputList = event.target.elements;
-
       console.log("Input Element List", inputList);
 
       const toppings = [];

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // // 'Import' the http module
 // const http = require("http");
 // // Initialize the http server
@@ -28,6 +29,7 @@ const pizzas = require("./routers/pizzas");
 // Initialize the Express application
 const app = express();
 
+// Used to secure Environmental variables
 dotenv.config();
 
 const PORT = process.env.PORT || 4040; // we use || to provide a default value
@@ -84,31 +86,31 @@ app.get("/status", (request, response) => {
 //   });
 // });
 
-// PROXY SERVER <API to API> CALL
-app.get("/weather/:city", (request, response) => {
-  axios
-    // Get request to retrieve the current weather data using the API key and providing a city name
-    .get(`https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=${request.params.city}`)
-    .then((weatherData) => {
-      console.log(weatherData);
-      response.json(weatherData.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+// Proxy server <API to API> call
+// app.get("/weather/:city", (request, response) => {
+//   axios
+//     // Get request to retrieve the current weather data using the API key and providing a city name
+//     .get(`https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=${request.params.city}`)
+//     .then((weatherData) => {
+//       console.log(weatherData);
+//       response.json(weatherData.data);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
-app.post("/add", (request, response) => {
-  console.log(request.body);
-  const num1 = request.body.numberOne;
-  const num2 = request.body.numberTwo;
-  const responseBody = {
-    sum: num1 + num2
-  };
-  response.json(responseBody);
-});
+// app.post("/add", (request, response) => {
+//   console.log(request.body);
+//   const num1 = request.body.numberOne;
+//   const num2 = request.body.numberTwo;
+//   const responseBody = {
+//     sum: num1 + num2
+//   };
+//   response.json(responseBody);
+// });
 
-// WHEN "pizzas" IS HIT, 'pizzas' ROUTE EXECUTES
+// When 'pizzas.js' file is is hit, 'pizzas' route executes
 app.use("/pizzas", pizzas);
 
 // Tell the Express app to start listening

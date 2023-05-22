@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const { Router } = require("express");
 const Pizza = require("../models/Pizza");
 const router = Router();
@@ -32,6 +33,7 @@ router.get("/:id", (request, response) => {
   });
 });
 
+// Delete a single record by ID using a query parameter
 router.delete("/:id", (request, response) => {
   Pizza.findByIdAndRemove(request.params.id, {}, (error, record) => {
     if (error) return response.status(500).json(error.errors);
@@ -40,6 +42,7 @@ router.delete("/:id", (request, response) => {
   });
 });
 
+// Find and update a single record by ID using a query parameter
 router.put("/:id", (request, response) => {
   const body = request.body;
   Pizza.findByIdAndUpdate(
